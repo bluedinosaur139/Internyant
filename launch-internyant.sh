@@ -63,7 +63,6 @@ fi
 DESKTOP_ENTRY_PATH="$HOME/.local/share/applications/internyant-browser.desktop"
 if [ -f "./chromium-custom.desktop" ]; then
   echo "Installing custom desktop entry..."
-  # Update the desktop entry with the correct icon path before copying
   sed -i "s|^Icon=.*|Icon=$ICON_PATH|g" ./chromium-custom.desktop
   cp ./chromium-custom.desktop "$DESKTOP_ENTRY_PATH"
   chmod +x "$DESKTOP_ENTRY_PATH"
@@ -82,4 +81,3 @@ chromium --user-data-dir="$HOME/.config/chromium/" \
   --disable-features=UsePortal \
   --log-level=3 \
   --search-url="https://search.brave.com/search?q=%s" >/dev/null 2>&1
-
