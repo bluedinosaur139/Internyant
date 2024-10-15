@@ -1,3 +1,5 @@
+![Screenshot_20241015_155517](https://github.com/user-attachments/assets/681a4b37-ca1f-4871-b2a4-1b4fb6f0e302)
+
 Internyant Browser 🐱‍💻
 The Anti-Corporate Browser for the People
 
