@@ -57,4 +57,4 @@ echo "Launching Chromium..."
 chromium --user-data-dir="$HOME/.config/chromium/" \
   --enable-extensions \
   --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl
-  --no-error-dialogs >/dev/null 2>&1
+  --no-error-dialogs --disable-logging --log-level=3 >/dev/null 2>&1
