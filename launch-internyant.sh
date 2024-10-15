@@ -71,6 +71,15 @@ else
   echo "Custom desktop entry not found in repo. Skipping..."
 fi
 
-# Launch Chromium via the new desktop entry
+# Launch Chromium with the pre-configured profile and extensions by their IDs
 echo "Launching Internyant Browser..."
-gtk-launch internyant-browser.desktop
+chromium --user-data-dir="$HOME/.config/chromium/" \
+  --enable-extensions \
+  --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl \
+  --no-error-dialogs \
+  --disable-logging \
+  --disable-gpu \
+  --disable-features=UsePortal \
+  --log-level=3 \
+  --search-url="https://search.brave.com/search?q=%s" >/dev/null 2>&1
+
