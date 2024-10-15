@@ -52,6 +52,16 @@ else
   echo "Pre-configured profile already exists."
 fi
 
+# Copy custom desktop entry to user's local applications directory
+DESKTOP_ENTRY_PATH="$HOME/.local/share/applications/chromium-custom.desktop"
+if [ -f "./chromium-custom.desktop" ]; then
+  echo "Installing custom desktop entry..."
+  cp ./chromium-custom.desktop "$DESKTOP_ENTRY_PATH"
+  chmod +x "$DESKTOP_ENTRY_PATH"
+else
+  echo "Custom desktop entry not found in repo. Skipping..."
+fi
+
 # Launch Chromium with the pre-configured profile and extensions by their IDs
 echo "Launching Chromium..."
 chromium --user-data-dir="$HOME/.config/chromium/" \
