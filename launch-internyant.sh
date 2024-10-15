@@ -52,24 +52,25 @@ else
   echo "Pre-configured profile already exists."
 fi
 
+# Copy the icon to a stable location
+ICON_PATH="$HOME/.local/share/icons/Internyant-icon.png"
+if [ -f "./Internyant-icon.png" ]; then
+  echo "Copying custom icon..."
+  cp ./Internyant-icon.png "$ICON_PATH"
+fi
+
 # Copy custom desktop entry to user's local applications directory
-DESKTOP_ENTRY_PATH="$HOME/.local/share/applications/chromium-custom.desktop"
+DESKTOP_ENTRY_PATH="$HOME/.local/share/applications/internyant-browser.desktop"
 if [ -f "./chromium-custom.desktop" ]; then
   echo "Installing custom desktop entry..."
+  # Update the desktop entry with the correct icon path before copying
+  sed -i "s|^Icon=.*|Icon=$ICON_PATH|g" ./chromium-custom.desktop
   cp ./chromium-custom.desktop "$DESKTOP_ENTRY_PATH"
   chmod +x "$DESKTOP_ENTRY_PATH"
 else
   echo "Custom desktop entry not found in repo. Skipping..."
 fi
 
-# Launch Chromium with the pre-configured profile and extensions by their IDs
-echo "Launching Chromium..."
-chromium --user-data-dir="$HOME/.config/chromium/" \
-  --enable-extensions \
-  --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl \
-  --no-error-dialogs \
-  --disable-logging \
-  --disable-gpu \
-  --disable-features=UsePortal \
-  --log-level=3 \
-  --search-url="https://search.brave.com/search?q=%s" >/dev/null 2>&1
+# Launch Chromium via the new desktop entry
+echo "Launching Internyant Browser..."
+gtk-launch internyant-browser.desktop
