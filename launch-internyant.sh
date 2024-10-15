@@ -1,33 +1,50 @@
 #!/bin/bash
 
-# Define the directory for Chromium
-CHROMIUM_DIR="$HOME/chromium"
+# Function to detect OS and install Chromium
+install_chromium() {
+  if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+  else
+    OS=$(uname -s)
+  fi
 
-# Clone the Chromium repo if it doesn't exist
-if [ ! -d "$CHROMIUM_DIR" ]; then
-  echo "Cloning Chromium repo..."
-  git clone --depth=1 https://github.com/chromium/chromium.git "$CHROMIUM_DIR"
+  case $OS in
+    arch | manjaro)
+      echo "Detected Arch-based system. Installing Chromium via pacman..."
+      sudo pacman -S --noconfirm chromium
+      ;;
+    ubuntu | debian)
+      echo "Detected Debian-based system. Installing Chromium via apt..."
+      sudo apt update && sudo apt install -y chromium-browser
+      ;;
+    fedora)
+      echo "Detected Fedora. Installing Chromium via dnf..."
+      sudo dnf install -y chromium
+      ;;
+    opensuse)
+      echo "Detected OpenSUSE. Installing Chromium via zypper..."
+      sudo zypper install -y chromium
+      ;;
+    *)
+      echo "Unsupported OS: $OS. Please install Chromium manually."
+      exit 1
+      ;;
+  esac
+}
+
+# Install Chromium if not already installed
+if ! command -v chromium &> /dev/null; then
+  echo "Chromium not found. Installing Chromium..."
+  install_chromium
 else
-  echo "Updating Chromium repo..."
-  cd "$CHROMIUM_DIR"
-  git pull
+  echo "Chromium is already installed."
 fi
 
-# Navigate to the Chromium directory
-cd "$CHROMIUM_DIR"
+# Now continue with the rest of your script (launching Chromium with extensions, etc.)
 
-# Set up build configuration if it's the first time
-if [ ! -d "out/Default" ]; then
-  echo "Generating build files..."
-  gn gen out/Default
-fi
-
-# Build Chromium
-echo "Building Chromium (this may take a while)..."
-ninja -C out/Default chrome
-
-# Launch Chromium with extensions by their IDs
+# Launch Chromium with your custom extensions by their IDs
 echo "Launching Chromium..."
-./out/Default/chrome \
+chromium \
   --enable-extensions \
   --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl
