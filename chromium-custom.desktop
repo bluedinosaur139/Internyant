@@ -2,7 +2,7 @@
 Version=1.0
 Name=Internyant Browser
 Comment=Customized Chromium-based browser
-Exec=chromium --user-data-dir=%U/.config/chromium/ --enable-extensions --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl --no-error-dialogs --disable-logging --disable-gpu --disable-features=UsePortal --log-level=3 --search-url="https://search.brave.com/search?q=%s"
+Exec=chromium --user-data-dir=$HOME/.config/chromium/ --enable-extensions --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl --no-error-dialogs --disable-logging --disable-gpu --disable-features=UsePortal --log-level=3 --search-url="https://search.brave.com/search?q=%s"
 Icon=$HOME/.local/share/icons/Internyant-icon.png
 Terminal=false
 Type=Application
