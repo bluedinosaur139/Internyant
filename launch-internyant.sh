@@ -41,10 +41,19 @@ else
   echo "Chromium is already installed."
 fi
 
-# Now continue with the rest of your script (launching Chromium with extensions, etc.)
+# Define the directory for Chromium's user profile
+PROFILE_DIR="$HOME/.config/chromium/Default"
 
-# Launch Chromium with your custom extensions by their IDs
+# Check if the pre-configured profile exists and extract if not
+if [ ! -d "$PROFILE_DIR" ]; then
+  echo "Extracting pre-configured Chromium profile..."
+  unzip ./preconfigured-profile.zip -d "$HOME/.config/chromium/"
+else
+  echo "Pre-configured profile already exists."
+fi
+
+# Launch Chromium with the pre-configured profile and extensions by their IDs
 echo "Launching Chromium..."
-chromium \
+chromium --user-data-dir="$HOME/.config/chromium/" \
   --enable-extensions \
   --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl
