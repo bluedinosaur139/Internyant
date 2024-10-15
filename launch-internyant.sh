@@ -56,5 +56,10 @@ fi
 echo "Launching Chromium..."
 chromium --user-data-dir="$HOME/.config/chromium/" \
   --enable-extensions \
-  --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl
-  --no-error-dialogs --disable-logging --disable-gpu --disable-features=UsePortal --log-level=3 >/dev/null 2>&1
+  --load-extension=bgnkhhnnamicmpeenaelnjfhikgbkllg,mnjggcdmjocbbbhaepdhchncahnbgone,knplfmfnffhggljlkecljlmlegkflhnl \
+  --no-error-dialogs \
+  --disable-logging \
+  --disable-gpu \
+  --disable-features=UsePortal \
+  --log-level=3 \
+  --search-url="https://search.brave.com/search?q=%s" >/dev/null 2>&1
