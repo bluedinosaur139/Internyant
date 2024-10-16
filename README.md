@@ -46,8 +46,6 @@ Simply execute the setup script, and Internyant will handle everything for you, 
 sh launch-internyant.sh
 ```
 
-ill add in desktop entry and other automation scripts later on check back often.
-
 
 Workarounds
 
@@ -57,4 +55,4 @@ DBus & GPU Warnings: Internyant might throw some warnings about DBus or GPU stuf
 
 Theming & Customization
 
-Internyant’s got dark mode locked down by default, but you can easily tweak themes and settings further using Chromium’s customization options. Make it as slick as you like!
+Internyant’s got dark mode locked down by default, and its own custom icon, but you can easily tweak themes and settings further using Chromium’s customization options. Make it as slick as you like!
