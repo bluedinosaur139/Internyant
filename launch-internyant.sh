@@ -81,3 +81,18 @@ chromium --user-data-dir="$HOME/.config/chromium/" \
   --disable-features=UsePortal \
   --log-level=3 \
   --search-url="https://search.brave.com/search?q=%s" >/dev/null 2>&1
+
+  # Overwrite default Chromium desktop entry with custom icon
+DESKTOP_ENTRY_PATH="/usr/share/applications/chromium-browser.desktop"
+CUSTOM_ICON_PATH="$HOME/.local/share/icons/Internyant-icon.png"
+
+if [ -f "$DESKTOP_ENTRY_PATH" ]; then
+    echo "Applying custom icon to Chromium desktop entry..."
+    sed -i "s|^Icon=.*|Icon=$CUSTOM_ICON_PATH|g" "$DESKTOP_ENTRY_PATH"
+fi
+
+# Step 3: (Optional) Suppress manifest warnings or further actions
+# This step is optional based on your findings with manifest warnings.
+# You could add any further suppression or customization logic here if needed.
+
+echo "Customizations applied after Chromium launch."
