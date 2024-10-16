@@ -4,7 +4,8 @@ Internyant Browser 🐱‍💻
 
 The Anti-Corporate Browser for the People
 
-![Screenshot_20241015_155517](https://github.com/user-attachments/assets/681a4b37-ca1f-4871-b2a4-1b4fb6f0e302)
+![Screenshot_20241015_204242](https://github.com/user-attachments/assets/13df54ee-e4dc-460c-8765-21c27fc5c955)
+
 
 Welcome to Internyant! The browser that doesn’t bow down to multi-trillion-dollar corporations or invasive ad systems. Internyant is here to flex on other browsers, and guess what? It’s born out of hacker-level shenanigans, with just a hint of Robin Hood spirit.
 
