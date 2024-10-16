@@ -48,7 +48,7 @@ Simply execute the setup script, and Internyant will handle everything for you, 
 ```
 sh launch-internyant.sh
 ```
-
+This will install and launch the app, either pin it to taskbar right then by right clicking on open app or search for it in app menu right click and pin to taksbar, I aslo recommend a kb shortcut but thats on you.
 
 Workarounds
 
