@@ -23,6 +23,9 @@ Fully Customizable: Theme it however you want! You’re in control.
 
 Lightning Fast Setup: Up and running in no time, without corporate nonsense.
 
+Search Engine: brave search, the only good thing about brave is their search tool, so now its yours.
+
+
 How It Works
 
 Internyant is based on Chromium, with a fully pre-configured profile and all the extensions you could ever need. Streamlined, efficient, and made to make your life easier. You won’t have to do anything complicated—just sit back and enjoy.
