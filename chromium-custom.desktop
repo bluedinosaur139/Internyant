@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Internyant Browser
-Comment=Customized Chromium-based browser
-Exec=sh $HOME/Internyant/launch-internyant.sh
-Icon=$HOME/.local/share/icons/Internyant-icon.png
-Terminal=false
-Type=Application
-Categories=Network;WebBrowser;
